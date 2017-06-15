@@ -1,0 +1,12 @@
+resolver: lts-8.8
+
+packages:
+  - location:
+      git: https://github.com/facebookincubator/duckling.git
+      commit: 3ec2228eac0d515db38db3dea906f69be0b3e59e
+
+extra-deps: []
+
+flags: {}
+
+extra-package-dbs: []
