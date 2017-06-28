@@ -1,9 +1,9 @@
 import atexit
-import pyduckling
+from . pyduckling import py_init, py_exit, parse
 import json
 
-atexit.register(pyduckling.py_exit)
-pyduckling.py_init([])
+atexit.register(py_exit)
+py_init([])
 
 
 def parse_time(text, lang='EN', date=0):
@@ -14,9 +14,9 @@ def parse_time(text, lang='EN', date=0):
     :param lang string: The language of the text as two letter code
         (see duckling)
     :param date int: The current time in milliseconds since the epoch
-        (UTC)
+        (UTC) (e.g. int(1000 * datetime.timestamp(datetime.utcnow())))
 
     :returns: The duckling json representation of all found time
               expressions.
     """
-    return json.loads(pyduckling.parse(text, lang, date))
+    return json.loads(parse(text, lang, date))
