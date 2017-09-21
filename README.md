@@ -27,6 +27,6 @@ from pyduckling import parse_time
 now = int(1000 * datetime.timestamp(datetime.utcnow()))
 
 parse_time('next week', 'EN', now)
-parse_time('nächsten Montag', 'week', 'DE', now)
+parse_time('nächsten Montag', 'DE', now)
 ```
 
