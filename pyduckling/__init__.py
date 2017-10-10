@@ -1,6 +1,8 @@
 import atexit
 from . pyduckling import py_init, py_exit, parse
 import json
+from datetime import datetime
+from dateutil import parser
 
 atexit.register(py_exit)
 py_init([])
@@ -19,4 +21,9 @@ def parse_time(text, lang='EN', date=0):
     :returns: The duckling json representation of all found time
               expressions.
     """
-    return json.loads(parse(text, lang, date))
+    try:
+        type(date) != int
+        date = int(1000 * datetime.timestamp(parser.parse(date)))
+        return json.loads(parse(text, lang, date))
+    except:
+        return json.loads(parse(text, lang, date))
